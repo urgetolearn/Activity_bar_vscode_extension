@@ -1,0 +1,62 @@
+{
+  "name": "views",
+  "displayName": "views",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "myExtension",
+          "title": "My Extension",
+          "icon": "resources/dribbble.png"
+        }
+      ]
+    },
+    "views": {
+      "myExtension": [
+        {
+          "id": "myView",
+          "name": "My View"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "myExtension.refresh",
+        "title": "Refresh View"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "myExtension.refresh",
+          "when": "view == myView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.91.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
